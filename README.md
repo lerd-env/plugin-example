@@ -9,8 +9,13 @@ A small working [Lerd](https://lerd.sh) plugin that uses every surface a plugin 
 - **Hooks**: on `site.linked` and `site.unlinked`
 - **MCP tool and skill**: `example_greet`, with a skill telling your AI assistant when to call it
 - **API endpoint**: `GET /api/plugins/example/greet?site=<name>`
-- **Dashboard page and site tab**: an **Example** page on the rail and an **Example** tab on every site
+- **Dashboard page, site tab and Overview card**: an **Example** page on the rail, an **Example** tab on every site, and a card on the Overview of the sites you switch it on for
 - **Page script**: a small button on the pages of the sites you switch the plugin on for, which calls the plugin's own endpoint
+- **Its own card in the dashboard**: an icon, screenshots and a DOCS.md, shown on the plugin's Documentation tab once it is installed
+
+Its pages are built from the look Lerd gives every plugin page, so they follow the dashboard's light or dark mode and its theme without a line of colour of their own.
+
+![The example's rail page](docs/page.png)
 
 ## What it reads, changes and sends
 

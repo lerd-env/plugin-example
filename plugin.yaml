@@ -3,8 +3,16 @@
 api_version: 1
 name: example
 lerd: ">=1.38"
-version: 0.1.0
+version: 0.2.0
 description: Every surface a Lerd plugin can add, in one small working example
+
+# Shown on the plugin's Documentation tab in the dashboard, offline. Keep the
+# README for the repository; this is what someone reads once it is installed.
+docs: DOCS.md
+# Drawn on its card in the dashboard; one colour, since it is used as a mask.
+icon: ui/icon.svg
+# Images shown on its card in the dashboard.
+screenshots: [docs/page.png, docs/tab.png]
 
 # `lerd example:greet [site]`
 commands:
@@ -59,5 +67,9 @@ ui:
   site_tab:
     title: Example
     entry: ui/site.html
+  # A card on a site's Overview, once switched on for that site; it grows to fit.
+  overview_card:
+    title: Example
+    entry: ui/card.html
   # Injected into a site's pages once switched on for that site, never before.
   page_script: ui/page.js

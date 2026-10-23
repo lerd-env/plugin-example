@@ -1,6 +1,7 @@
 // lerd runs plugin pages in a sandboxed frame, so they reach the API through the
 // dashboard rather than fetching it themselves. lerd.api only reaches this
-// plugin's own endpoints; lerd.context holds the site a site tab is showing.
+// plugin's own endpoints; lerd.context holds the site a site tab is showing
+// and the dashboard's language.
 window.lerd = (() => {
   const params = new URLSearchParams(location.search);
   const pending = new Map();
@@ -15,11 +16,20 @@ window.lerd = (() => {
     msg.status < 400 ? p.resolve(msg.body) : p.reject(new Error(msg.body));
   });
 
+  // An Overview card has no height of its own, so tell the dashboard how tall
+  // the page is whenever that changes.
+  new ResizeObserver(() => {
+    window.parent.postMessage({ type: 'lerd:resize', height: document.documentElement.scrollHeight }, '*');
+  }).observe(document.documentElement);
+
   return {
     context: {
       site: params.get('site') || '',
       domain: params.get('domain') || '',
-      branch: params.get('branch') || ''
+      branch: params.get('branch') || '',
+      // The dashboard's language, like en, ro or zh-TW, for a page that
+      // translates itself.
+      lang: params.get('lang') || 'en'
     },
     api(path, { method = 'GET', body } = {}) {
       const id = ++next;
