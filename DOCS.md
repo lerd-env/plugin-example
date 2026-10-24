@@ -5,6 +5,7 @@ A small plugin that uses every part of Lerd a plugin can add, so you can see eac
 ## What to try
 
 - **Terminal**: `lerd example:greet [site]` prints a greeting for a site; `lerd example:sites` lists your sites through Lerd's own API.
+- `lerd example:notify` sends a notification, once you allow Example to.
 - **Commands menu**: every site gets **Greet**, which runs the same greeting.
 - **Rail page**: the **Example** page on the dashboard's rail asks for a site name and greets it through the plugin's own API endpoint.
 - **Site tab**: every site gets an **Example** tab that greets the site it is opened on.

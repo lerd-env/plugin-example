@@ -4,7 +4,8 @@ A small working [Lerd](https://lerd.sh) plugin that uses every surface a plugin 
 
 ## What it adds to Lerd
 
-- **CLI commands**: `lerd example:greet [site]` prints a greeting, `lerd example:sites` lists your sites through Lerd's API
+- **CLI commands**: `lerd example:greet [site]` prints a greeting, `lerd example:sites` lists your sites through Lerd's API, `lerd example:notify` sends you a notification
+- **Notifications**: it asks to send them, so Lerd asks you at install, and it sends one only when you run `example:notify`
 - **Site command**: **Greet** in every site's Commands menu and the command palette
 - **Hooks**: on `site.linked` and `site.unlinked`
 - **MCP tool and skill**: `example_greet`, with a skill telling your AI assistant when to call it
@@ -19,7 +20,7 @@ Its pages are built from the look Lerd gives every plugin page, so they follow t
 
 ## What it reads, changes and sends
 
-It reads only the site name Lerd hands it. The hooks append each event and its payload to `events.log` in the plugin's own data folder, and nothing else is written. `lerd example:sites` calls Lerd's own API on your machine with the token Lerd gives the plugin. Nothing leaves your machine.
+It reads only the site name Lerd hands it. The hooks append each event and its payload to `events.log` in the plugin's own data folder, and nothing else is written. `lerd example:sites` and `lerd example:notify` call Lerd's own API on your machine with the token Lerd gives the plugin, the second to show you a notification once you allow it. Nothing leaves your machine.
 
 It needs `curl` for `example:sites`, and runs on Lerd 1.38 or newer.
 
